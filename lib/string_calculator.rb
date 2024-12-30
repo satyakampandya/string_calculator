@@ -6,6 +6,10 @@ require_relative "string_calculator/version"
 # provided in a comma-separated string.
 module StringCalculator
   def self.add(numbers)
-    numbers.split(",").map(&:to_i).reduce(0) { |number, sum| sum + number }
+    clean_numbers = numbers.gsub("\n", ",")
+                           .split(",")
+                           .reject(&:empty?)
+                           .map(&:to_i)
+    clean_numbers.sum
   end
 end
