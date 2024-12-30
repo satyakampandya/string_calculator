@@ -6,6 +6,10 @@
 /pkg/
 /spec/reports/
 /tmp/
+Gemfile.lock
 
 # rspec failure tracking
 .rspec_status
+
+# ignore Jetbrains IDE stuff
+.idea
