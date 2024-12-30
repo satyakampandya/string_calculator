@@ -21,4 +21,13 @@ RSpec.describe StringCalculator do
   it "Returns the sum of any amount of numbers with new line separator" do
     expect(StringCalculator.add("1\n2,3")).to eq(6)
   end
+
+  it "Returns the sum of any amount of numbers with custom delimiter" do
+    expect(StringCalculator.add("//;\n1;2")).to eq(3)
+    expect(StringCalculator.add("//|\n1|2|3")).to eq(6)
+    expect(StringCalculator.add("//||\n1||2||3")).to eq(6)
+    expect(StringCalculator.add("//,,\n1,,2,,3")).to eq(6)
+    expect(StringCalculator.add("//A\n1A2A3")).to eq(6)
+    expect(StringCalculator.add("//,,\n,,")).to eq(0)
+  end
 end
