@@ -15,12 +15,7 @@ module StringCalculator
 
   def self.add(numbers)
     # Check if custom delimiter exists
-    if numbers.start_with?("//")
-      delimiter, numbers = numbers.split("\n", 2)
-      delimiter = delimiter.split("//").reject(&:empty?).first || ","
-    else
-      delimiter = ","
-    end
+    delimiter, numbers = extract_delimiter_and_numbers(numbers)
 
     # Replace the delimiter with a comma, split by the delimiter, and convert to integers
     clean_numbers = numbers.gsub("\n", delimiter).split(delimiter).map(&:to_i)
@@ -29,6 +24,17 @@ module StringCalculator
     negative_numbers = clean_numbers.select(&:negative?)
     raise NegativeNumberError, negative_numbers if negative_numbers.any?
 
-    clean_numbers.compact.sum
+    clean_numbers.compact.reject { |number| number > 1000 }.sum
+  end
+
+  # Extracts the delimiter and the numbers from the input string
+  def self.extract_delimiter_and_numbers(numbers)
+    if numbers.start_with?("//")
+      delimiter, numbers = numbers.split("\n", 2)
+      delimiter = delimiter.split("//").reject(&:empty?).first || ","
+    else
+      delimiter = ","
+    end
+    [delimiter, numbers]
   end
 end

@@ -2,4 +2,6 @@ module StringCalculator
   VERSION: String
   # See the writing guide of rbs: https://github.com/ruby/rbs#guides
   def self.add: (String numbers) -> Integer
+
+  def self.extract_delimiter_and_numbers:  (String numbers) -> [String, Array[String]]
 end
