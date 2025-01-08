@@ -9,7 +9,8 @@ Gem::Specification.new do |spec|
   spec.email = ["satyakampandya@gmail.com"]
 
   spec.summary = "A simple Ruby gem for performing string-based arithmetic operations."
-  spec.description = "StringCalculator is a Ruby gem that provides utilities for performing arithmetic operations on strings containing numbers. It is lightweight, easy to use, and designed for developers who need basic string arithmetic functionality."
+  spec.description = "StringCalculator is a Ruby gem that provides utilities for performing arithmetic operations on " \
+                     "strings containing numbers."
 
   spec.homepage = "https://github.com/satyakampandya/string_calculator"
   spec.license = "MIT"
