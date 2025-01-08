@@ -1,39 +1,108 @@
-# StringCalculator
+# StringCalculator Gem
 
-TODO: Delete this and the text below, and describe your gem
+StringCalculator is a Ruby gem that performs addition on numbers provided in string format. It's lightweight, simple to use, and ideal for scenarios where numbers are represented as strings and need to be summed programmatically.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/string_calculator`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Features
+
+- Perform addition on numbers in string format.
+- Supports comma-separated numbers and custom delimiters.
+- Handles edge cases like empty strings and invalid inputs gracefully (e.g., returns `0` for empty input).
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Since this gem is not published on RubyGems.org, install it directly from the GitHub repository.
 
-Install the gem and add to the application's Gemfile by executing:
+Add this line to your application's Gemfile:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```ruby
+gem 'string_calculator', git: 'https://github.com/satyakampandya/string_calculator.git'
+```
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+Then execute:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```sh
+bundle install
+```
+
+Alternatively, you can manually install it with:
+
+```sh
+git clone https://github.com/satyakampandya/string_calculator.git
+cd string_calculator
+bundle exec rake install
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+Using StringCalculator is straightforward. You can call the module methods directly:
+
+```ruby
+require 'string_calculator'
+
+# Adding a string of numbers
+result = StringCalculator.add("1,2,3")
+puts "Result: #{result}"  # Outputs: Result: 6
+
+# Handling empty input
+result = StringCalculator.add("")
+puts "Result: #{result}"  # Outputs: Result: 0
+
+# Adding numbers with custom delimiter
+# Example: "//;\n1;2;3" => custom delimiter `;`
+result = StringCalculator.add("//;\n1;2;3")
+puts "Result: #{result}"  # Outputs: Result: 6
+```
+
+### Key Method
+
+- **`StringCalculator.add(input_string)`**:  
+  Parses a string of numbers and returns their sum. Supports:
+    - **Comma-separated numbers**: e.g., `"1,2,3"` → `6`
+    - **Custom delimiters**: e.g., `"//;\n1;2;3"` → `6`
+    - **Empty input**: e.g., `""` → `0`
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+To contribute or explore the gem locally:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/satyakampandya/string_calculator.git
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   bin/setup
+   ```
+
+3. Run tests to ensure everything works as expected:
+
+   ```sh
+   rake spec
+   ```
+
+4. Use the interactive console for experimentation:
+
+   ```sh
+   bin/console
+   ```
+
+To install the gem onto your local machine for use in other projects, run the following:
+
+```sh
+bundle exec rake install
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/string_calculator. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/string_calculator/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at [StringCalculator GitHub Repository](https://github.com/satyakampandya/string_calculator). Contributions are highly appreciated to make this gem better for everyone!
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+This project is open-source and available under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
 
-Everyone interacting in the StringCalculator project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/string_calculator/blob/master/CODE_OF_CONDUCT.md).
+Contributors are expected to follow the [Code of Conduct](https://github.com/satyakampandya/string_calculator/blob/master/CODE_OF_CONDUCT.md) to foster a welcoming and inclusive environment.
